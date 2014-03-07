@@ -1,8 +1,10 @@
 # MemoryGame
 
-TODO: Write a gem description
+A Memory Game developed on Ruby for two players. It was coded to Ricardo Nacif's Hacker School Application. 
 
-## Installation
+## Playing
+
+The game runs on terminal. #TODO
 
 Add this line to your application's Gemfile:
 
@@ -15,10 +17,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install memory_game
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
