@@ -1,12 +1,11 @@
 module MemoryGame
   class Card
     
-    attr_reader :position, :letter
+    attr_reader :letter
     attr_accessor :matched
 
-    def initialize(input)
-      @letter = input.fetch(:letter).upcase
-      @position = input.fetch(:position)
+    def initialize(letter)
+      @letter = letter
       @matched = false
       
       validate()
