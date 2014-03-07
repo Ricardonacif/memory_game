@@ -30,10 +30,23 @@ module MemoryGame
       end
 
       it "cards_matrix should containing each card duplicated twice" do
-        
+        board = Board.new(2,3)
+        letters = board.card_matrix.each.map do |c|
+           c.letter
+        end
+
+        counter = Hash.new(0)
+
+        letters.each do |v|
+          counter[v] += 1
+        end
+
+        counter.each_value do |v|
+          expect(v).to eq 2
+        end
+
       end
     end
 
   end  
 end
-
