@@ -6,11 +6,11 @@ module MemoryGame
 
     context "initialize" do
       it "shouldn't be initialized without a size" do
-        expect{Board.new()}.to raise_error
+        expect{Board.new()}.to raise_error(ArgumentError)
       end
 
       it "shouldn't be initialized without a size if the number of columns multiplied by the number of rows isn't an even number" do
-        expect{Board.new(3,1)}.to raise_error
+        expect{Board.new(3,1)}.to raise_error(ArgumentError)
       end
 
       it "should be initialized with a the number of rows and columns" do

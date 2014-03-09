@@ -15,9 +15,32 @@ module MemoryGame
     end
 
 
+    def formatted_grid(choosed= nil)
+      grid_header
+      
+      x = 0
+      y = 0
+      @card_matrix.each do |card|
+        print y.to_s + ' ' if x == 0
+        print card.to_s + " "
+        x+= 1
+        if x == @card_matrix.column_size
+          print "\n"
+          x = 0
+          y+= 1
+        end
+      end
+    end
 
 
     private
+
+    def grid_header
+      print '  '
+      @card_matrix.column_size.times {|i| print i.to_s + " "}
+      print "\n"
+    end
+
 
     def build_initial_matrix
       cards = random_cards_duplicated
@@ -33,7 +56,7 @@ module MemoryGame
     end
 
     def validate_matrix_size
-      raise ArgumentError, "The number of columns multiplied by the number of rows should equal an even number" unless (@rows*@columns)%2 == 0 
+      raise ArgumentError, "The number of columns multiplied by the number of rows should equal an even number" unless (@rows*@columns)%2 == 0
     end
 
   end
