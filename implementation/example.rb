@@ -1,6 +1,7 @@
 require_relative "../lib/memory_game.rb"
 
-board = MemoryGame::Board.new(1,6)
+first_player = MemoryGame::Player.new("Ricardo")
+second_player = MemoryGame::Player.new("Joao")
 
-board.formatted_grid
+MemoryGame::Game.new(players: [first_player, second_player], grid_size: [2,2]).start
 

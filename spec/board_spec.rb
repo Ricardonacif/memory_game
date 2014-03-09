@@ -47,6 +47,15 @@ module MemoryGame
 
       end
     end
+    
+    context "#all_cards_matched?" do
+
+      it "should return true if every card was already matched" do
+        board = Board.new(2,3)
+        board.card_matrix.each { |c| c.matched = true }
+        expect(board.all_cards_matched?).to eq true
+      end
+    end
 
   end  
 end

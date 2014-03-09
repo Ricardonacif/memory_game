@@ -32,6 +32,9 @@ module MemoryGame
       end
     end
 
+    def all_cards_matched?
+      @card_matrix.all? {|c| c.matched}
+    end
 
     private
 
