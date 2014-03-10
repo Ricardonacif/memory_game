@@ -15,14 +15,15 @@ module MemoryGame
     end
 
 
-    def formatted_grid(choosed= nil)
+    def formatted_grid(first_pick= nil, second_pick = nil)
       grid_header
       
       x = 0
       y = 0
       @card_matrix.each do |card|
         print y.to_s + ' ' if x == 0
-        print card.to_s + " "
+        picked = ([x,y] == first_pick) || ([x,y] == second_pick)
+        print card.to_s(picked) + " "
         x+= 1
         if x == @card_matrix.column_size
           print "\n"
@@ -30,6 +31,13 @@ module MemoryGame
           y+= 1
         end
       end
+    end
+
+    def get_card(card_coordinates)
+      x, y = card_coordinates
+      card_matrix[y, x]
+    rescue
+      return nil
     end
 
     def all_cards_matched?

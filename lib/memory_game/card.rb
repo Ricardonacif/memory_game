@@ -21,7 +21,7 @@ module MemoryGame
 
     def to_s(picked=false)
       if picked
-        @letter
+        @letter.to_s
       else
         @matched ? ' ' : '-'
       end      

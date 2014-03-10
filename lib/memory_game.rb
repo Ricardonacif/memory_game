@@ -1,5 +1,5 @@
 require "memory_game/version"
-
+require 'pry'
 module MemoryGame
 end
 

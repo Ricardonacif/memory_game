@@ -36,10 +36,10 @@ module MemoryGame
     context "#solicit_pick" do
       it "asks the player to pick a coordinate with 2 different phrases" do
         game.stub(:current_player) { john }
-        expected = "John, it's your turn now! Type the X and Y coordinates separeted by comma to pick a card."
+        expected = "John, it's your turn now! Type the X and Y coordinates separeted by comma to pick a card. Make sure they're available in the grid."
         expect(game.solicit_pick).to eq expected
-        game.first_pick = Card.new("A")
-        expected = "John, now pick another card to see if they match! Type the X and Y coordinates separeted by comma to pick a card."
+        game.first_pick_card = Card.new("A")
+        expected = "John, now pick another card to see if they match! Type the X and Y coordinates separeted by comma to pick a card. Make sure they're available in the grid."
         expect(game.solicit_pick).to eq expected
       end
     end
@@ -57,14 +57,14 @@ module MemoryGame
     context "#picks_match?" do
       it "returns true if the player has found a match between two cards picked" do
         card = Card.new('A')
-        game.first_pick = card
-        game.second_pick = card
+        game.first_pick_card = card
+        game.second_pick_card = card
         expect(game.picks_match?).to eq true
       end
       
       it "returns false if the player hasn't found a match between two cards picked" do
-        game.first_pick = Card.new('A')
-        game.second_pick = Card.new('B')
+        game.first_pick_card = Card.new('A')
+        game.second_pick_card = Card.new('B')
         expect(game.picks_match?).to eq false
       end
 
