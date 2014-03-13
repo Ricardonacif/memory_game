@@ -18,10 +18,7 @@ module MemoryGame
         player = Player.new("John")
         expect(player.matches_count).to eq 0
       end
-
-
     end
 
-  end  
-
+  end
 end

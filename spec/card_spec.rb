@@ -43,10 +43,7 @@ module MemoryGame
       it "should return a it's letter when it was chosen" do
         expect(subject.to_s(true)).to eq 'A'
       end
-
-
     end
-
 
   end  
 

@@ -1,19 +1,18 @@
-# MemoryGame
+# Terminal Memory Game
 
-A Memory Game developed on Ruby for two players. It was coded to Ricardo Nacif's Hacker School Application. 
+A Terminal Memory Game developed on Ruby for two players. It was coded by Ricardo Nacif for his Hacker School application. 
 
 ## Playing
 
-The game runs on terminal. After cloning, first execute
+The game is played on terminal. After cloning the repo, first cd to the folder, then execute:
 
     $ bundle install
 
-Then
+To run the example game, execute:
 
     $ bundle exec irb
 
-
-To execute the example game, run at irb:
+Then:
 
     load './implementation/example.rb'
 
