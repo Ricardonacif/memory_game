@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = MemoryGame::VERSION
   spec.authors       = ["Ricardo Nacif"]
   spec.email         = ["ricardonacif@lancedavez.com.br"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = "A Terminal Memory Game coded in Ruby Hacker School application proccess developed by Ricardo Nacif."
+  spec.summary       = spec.description
   spec.homepage      = ""
   spec.license       = "MIT"
 

@@ -36,10 +36,10 @@ module MemoryGame
     context "#solicit_pick" do
       it "asks the player to pick a coordinate with 2 different phrases" do
         game.stub(:current_player) { john }
-        expected = "John, it's your turn now! Type the X and Y coordinates separeted by comma to pick a card. Make sure they're available in the grid."
+        expected = "John, it's your turn now! Type the column and row coordinates separeted by comma to pick a card (e.g 1,0). Make sure they're available in the grid."
         expect(game.solicit_pick).to eq expected
         game.first_pick_card = Card.new("A")
-        expected = "John, now pick another card to see if they match! Type the X and Y coordinates separeted by comma to pick a card. Make sure they're available in the grid."
+        expected = "John, now pick another card to see if they match! Type the column and row coordinates separeted by comma to pick a card (e.g 1,0). Make sure they're available in the grid."
         expect(game.solicit_pick).to eq expected
       end
     end
@@ -115,6 +115,24 @@ module MemoryGame
         game.stub(:game_over?) { true }
         expect(game.game_over_message).to eq 'Oh :/ the game ended in a tie. Better luck next time!'
       end
+    end
+
+    context "#is_the_same_pick_from_first?" do
+
+      it "should return true if the second pick is the same as the first" do
+        game.first_pick_coordinates = [0,0]
+        game.first_pick_card = Card.new('A')
+        game.second_pick_coordinates = [0,0]
+        expect(game.is_the_same_pick_from_first?).to eq true
+      end
+
+      it "should return false if the second pick is different than the first" do
+        game.first_pick_coordinates = [0,0]
+        game.first_pick_card = Card.new('A')
+        game.second_pick_coordinates = [0,1]
+        expect(game.is_the_same_pick_from_first?).to eq false
+      end
+
     end
 
   end

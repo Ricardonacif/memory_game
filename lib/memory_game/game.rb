@@ -21,7 +21,7 @@ module MemoryGame
       else
         "#{current_player.name}, it's your turn now!" 
       end
-      ask_to_pick + " Type the X and Y coordinates separeted by comma to pick a card. Make sure they're available in the grid."
+      ask_to_pick + " Type the column and row coordinates separeted by comma to pick a card (e.g 1,0). Make sure they're available in the grid."
 
     end
 
@@ -71,23 +71,26 @@ module MemoryGame
     def start
       puts "#{current_player.name} was randomly selected as the first player. Good Luck!"
       while true
-        board.formatted_grid
         
         while @first_pick_card.nil?
+          board.formatted_grid
           puts solicit_pick
           @first_pick_coordinates = get_coordinates
           valid, message = validate_pick(first_pick_coordinates)
           @first_pick_card = board.get_card(first_pick_coordinates) if valid
+          system('clear')
           puts message
         end
 
-        board.formatted_grid(first_pick_coordinates)
+        
 
         while @second_pick_card.nil?
+          board.formatted_grid(first_pick_coordinates)
           puts solicit_pick
           @second_pick_coordinates = get_coordinates
           valid, message = validate_pick(second_pick_coordinates)
           @second_pick_card = board.get_card(second_pick_coordinates) if valid
+          system('clear')
           puts message
         end
         board.formatted_grid(first_pick_coordinates, second_pick_coordinates)
@@ -97,9 +100,10 @@ module MemoryGame
         else
           "Oh! #{current_player.name} didn't scored this turn."
         end
-        
-        
-        if game_over?
+        puts "Press enter to continue"
+        gets.chomp
+        system('clear')
+        if game_over?          
           puts game_over_message
           return
         else
