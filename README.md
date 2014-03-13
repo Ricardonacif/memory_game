@@ -4,19 +4,20 @@ A Memory Game developed on Ruby for two players. It was coded to Ricardo Nacif's
 
 ## Playing
 
-The game runs on terminal. #TODO
+The game runs on terminal. After cloning, first execute
 
-Add this line to your application's Gemfile:
+    $ bundle install
 
-    gem 'memory_game'
+Then
 
-And then execute:
+    $ bundle exec irb
 
-    $ bundle
 
-Or install it yourself as:
+To execute the example game, run at irb:
 
-    $ gem install memory_game
+    load './implementation/example.rb'
+
+
 
 ## Contributing
 
