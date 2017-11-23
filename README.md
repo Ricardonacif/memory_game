@@ -1,6 +1,6 @@
 # Terminal Memory Game
 
-A Terminal Memory Game developed on Ruby for two players. It was coded by Ricardo Nacif for his Hacker School application. 
+A Terminal Memory Game developed using Ruby for two players. Have fun!
 
 ## Playing
 
